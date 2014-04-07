@@ -1,6 +1,7 @@
 <% if @restaurants.any? %>
 	<% @restaurants.each do |restaurant| %>
 		<%= restaurant.name %><br>
+		<%= link_to 'Edit', edit_restaurant_path(restaurant) %>
 	<% end %>
 <% else %>
 	No restaurants have been added yet

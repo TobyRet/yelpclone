@@ -1,6 +1,7 @@
 require 'spec_helper'
 
 describe 'the restaurant index page' do 
+  
   context 'no restaurants have been added' do
     it 'should display a warning message' do
       visit '/restaurants'
@@ -18,6 +19,22 @@ describe 'the restaurant index page' do
         click_button 'Create Restaurant'
         expect(current_path).to eq '/restaurants'
         expect(page).to have_content 'KFC'
+      end
+    end
+  end
+
+  context 'with existing restaurants' do
+    before do
+      Restaurant.create({:name => 'McDonalds'})
+    end
+
+    describe 'editing a restaurant' do
+      it 'should update the restaurant details' do
+        visit '/restaurants'
+        click_link 'Edit'
+        fill_in 'Name', with: 'Old McDonalds'
+        click_button 'Update Restaurant'
+        expect(page).to have_content 'Old McDonalds'
       end
     end
   end
