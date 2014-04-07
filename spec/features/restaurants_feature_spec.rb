@@ -8,7 +8,17 @@ describe 'the restaurant index page' do
     end
 
     describe 'adding a restaurant' do
+
+      it 'should be listed on the index' do
+        visit '/restaurants'
+        click_link 'Add a restaurant'
+        fill_in 'Name', with: 'KFC'
+        fill_in 'Category', with: 'Fastfood'
+        fill_in 'Location', with: 'Everywhere'
+        click_button 'Create Restaurant'
+        expect(current_path).to eq '/restaurants'
+        expect(page).to have_content 'KFC'
+      end
     end
-     
   end
 end
