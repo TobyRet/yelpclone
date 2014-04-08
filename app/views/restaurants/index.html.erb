@@ -3,6 +3,10 @@
 		<%= restaurant.name %><br>
 		<%= link_to 'Edit', edit_restaurant_path(restaurant) %><br>
 		<%= link_to "Delete #{restaurant.name}", restaurant_path(restaurant), method: :delete, data: { confirm: 'Are you sure?' } %>
+		<%= link_to "Review #{restaurant.name}", new_restaurant_review_path(restaurant) %>
+		<h5 class="average_review">
+			<%= restaurant.average_score %>
+		</h5>
 	<% end %>
 <% else %>
 	No restaurants have been added yet
