@@ -1,17 +1,19 @@
-<%= form_for @restaurant do |f| %>
-	<div class="row">
-  		<%= f.label :name%>
-  		<%= f.text_field :name, :class => "large-4 columns" %>
-  	</div>
-  	<div class="row">
-  		<%= f.label :category %>
-  		<%= f.text_field :category, :class => "large-4 columns" %>
-  	</div>
-  	<div class="row">
-  		<%= f.label :location %>
-  		<%= f.text_field :location, :class => "large-4 columns" %>
-  	</div>
-  	<div class="row">
-  		<%= f.submit :class => "button" %>
-  	</div>
-<% end %> 
+<div class="small-8 form_align">
+  <%= form_for @restaurant do |f| %>  	
+      <div class="row">
+      		<%= f.label :name%>
+      		<%= f.text_field :name, :class => "large-4 columns" %>
+      	</div>
+      	<div class="row">
+      		<%= f.label :category %>
+      		<%= f.text_field :category, :class => "large-4 columns" %>
+      	</div>
+      	<div class="row">
+      		<%= f.label :location %>
+      		<%= f.text_field :location, :class => "large-4 columns" %>
+      	</div>
+      	<div class="row">
+      		<%= f.submit :class => "button" %>
+      	</div>
+  <% end %> 
+</div>

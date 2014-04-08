@@ -1,15 +1,18 @@
-<div class="row">
-	<%=form_for [@restaurant, @review] do |f| %>
-		<div class="row">
-			<%= f.label :comment %>
-			<%= f.text_area :comment %>
-		</div>
-		<div class="row">
-			<%= f.label :rating %>
-			<%= f.select :rating, 1..5, :class => "average_review" %>
-		</div>
-		<div class="row">
-			<%= f.submit %>
-		</div>
-	<% end %>
+<h2>Create a Review</h2>
+<div class="small-8 form_align">
+	<div class="row">
+		<%=form_for [@restaurant, @review] do |f| %>
+			<div class="row">
+				<%= f.label :comment %>
+				<%= f.text_area :comment %>
+			</div>
+			<div class="row">
+				<%= f.label :rating %>
+				<%= f.select :rating, 1..5, :class => "average_review" %>
+			</div>
+			<div class="row">
+				<%= f.submit :class => "button" %>
+			</div>
+		<% end %>
+	</div>
 </div>

@@ -1,2 +1,40 @@
 @import "foundation_and_overrides";
 /* Add imports of custom sass/scss files here */
+
+.nav_inner {
+	padding-left: 10%;
+	padding-right: 10%;
+}
+
+#logo {
+	color: white;
+}
+
+.content_wrapper {
+	padding-left: 10%;
+	padding-right: 10%;
+	margin-top: 20px;
+}
+
+.restaurant_title {
+	font-size: 1.5em;
+}
+
+.restaurant_links {
+	padding-right: 15px;
+}
+
+.form_align {
+	margin: 0 auto;
+}
+
+.restaurant_item {
+	border: 1px solid gray;
+	border-radius: 5px;
+	padding: 10px;
+	margin-bottom: 20px;
+}
+
+.restaurant_item:hover {
+	background: #EBEBEB;
+}

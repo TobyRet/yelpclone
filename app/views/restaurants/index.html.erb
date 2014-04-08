@@ -1,15 +1,23 @@
-<% if @restaurants.any? %>
-	<% @restaurants.each do |restaurant| %>
-		<%= restaurant.name %><br>
-		<%= link_to 'Edit', edit_restaurant_path(restaurant) %><br>
-		<%= link_to "Delete #{restaurant.name}", restaurant_path(restaurant), method: :delete, data: { confirm: 'Are you sure?' } %>
-		<%= link_to "Review #{restaurant.name}", new_restaurant_review_path(restaurant) %>
-		<h5 class="average_review">
-			<%= restaurant.average_score %>
-		</h5>
+<h2>Restaurants Home</h2>
+	<% if @restaurants.any? %>
+		<% @restaurants.each do |restaurant| %>
+			<div class = "restaurant_item">
+				<div class="restaurant_title">
+					<%= restaurant.name %>
+				</div>
+				<ul class="button-group">
+					<li class = "restaurant_links"><%= link_to 'Edit', edit_restaurant_path(restaurant) %></li	>
+					<li class = "restaurant_links"><%= link_to "Delete #{restaurant.name}", 	restaurant_path(restaurant), method: :delete, data: { confirm: 'Are you sure?'	 } %></li>
+					<li class = "restaurant_links"><%= link_to "Review #{restaurant.name}", 		new_restaurant_review_path(restaurant) %></li>
+					<% if restaurant.reviews.any? %>
+						<li class="restaurant_links"><%= link_to 'Show reviews', restaurant_reviews_path(restaurant) %></li>
+					<% end %>
+					<li class="average_review">Score: <%= restaurant.average_score %></li>
+				</ul>
+			</div>
+		<% end %>
+	<% else %>
+		No restaurants have been added yet
 	<% end %>
-<% else %>
-	No restaurants have been added yet
-<% end %>
 <br>
-<%= link_to 'Add a restaurant', new_restaurant_path %>
+<%= link_to 'Add a restaurant', new_restaurant_path, :class => "button" %>

@@ -8,12 +8,21 @@ describe 'writing reviews' do
 
   it 'should change the average score of the restaurant' do
     visit '/restaurants'
+    review_mcd
+    expect(page).to have_css '.average_review', text: '2' 
+  end
+
+  it 'should display existing reviews' do
+    visit '/restaurants'
+    click_link 'Show reviews'
+    expect(page).to have_content('awful')
+  end
+
+  def review_mcd
     click_link 'Review McDonalds'
     fill_in 'Comment', with: 'Awful'
     select '2', from: 'Rating'
     click_button 'Create Review'
-    expect(page).to have_css '.average_review', text: '2' 
-
   end
-    
+
 end
