@@ -37,5 +37,14 @@ describe 'the restaurant index page' do
         expect(page).to have_content 'Old McDonalds'
       end
     end
+
+    describe 'deleting a restaurant' do
+      it 'should permanently destroy the restaurant' do
+        visit '/restaurants'
+        click_link 'Delete McDonalds'
+        expect(page).not_to have_content 'McDonalds'
+        expect(page).to have_content 'Restaurant deleted successfully!'
+      end
+    end
   end
 end

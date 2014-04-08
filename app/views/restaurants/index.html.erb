@@ -1,7 +1,8 @@
 <% if @restaurants.any? %>
 	<% @restaurants.each do |restaurant| %>
 		<%= restaurant.name %><br>
-		<%= link_to 'Edit', edit_restaurant_path(restaurant) %>
+		<%= link_to 'Edit', edit_restaurant_path(restaurant) %><br>
+		<%= link_to "Delete #{restaurant.name}", restaurant_path(restaurant), method: :delete, data: { confirm: 'Are you sure?' } %>
 	<% end %>
 <% else %>
 	No restaurants have been added yet
