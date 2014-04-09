@@ -58,6 +58,14 @@ describe 'the restaurant index page' do
           expect(page).to have_content('Food was awful')
         end
       end
+
+      describe 'the home page' do
+        it 'show latest reviews on the home page' do
+          visit '/restaurants' do
+          expect(page).to have_content('Food was awful')
+        end
+      end
+    end
     end
   end
 end

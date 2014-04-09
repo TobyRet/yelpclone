@@ -16,14 +16,6 @@
 	margin-top: 20px;
 }
 
-.restaurant_title {
-	font-size: 1.5em;
-}
-
-.restaurant_links {
-	padding-right: 15px;
-}
-
 .form_align {
 	margin: 0 auto;
 }
@@ -35,6 +27,23 @@
 	margin-bottom: 20px;
 }
 
+.restaurant_title {
+	font-size: 1.5em;
+}
+
+.restaurant_links {
+	padding-right: 15px;
+}
+
 .restaurant_item:hover {
 	background: #EBEBEB;
+}
+
+.notice {
+  text-align: center;
+  background-color: #2ecc71;
+  border-radius: 4px;
+  color: white;
+  font-size: 20px;
+  margin-top: 50px;
 }

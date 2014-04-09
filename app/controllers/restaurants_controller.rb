@@ -1,6 +1,7 @@
 class RestaurantsController < ApplicationController
   def index
     @restaurants = Restaurant.all
+    @reviews = Review.all
   end
 
   def new
@@ -13,13 +14,14 @@ class RestaurantsController < ApplicationController
 
   def create
     Restaurant.create restaurant_params
+    flash[:notice] = 'Restaurant added!'
     redirect_to '/restaurants'
   end
 
   def update
     @restaurant = Restaurant.find params[:id]
     @restaurant.update restaurant_params
-    flash[:notice] = 'Restaurant updated successfully'
+    flash[:notice] = 'Restaurant updated successfully!'
     redirect_to '/restaurants'
   end
 

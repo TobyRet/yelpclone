@@ -1,7 +1,7 @@
 <h2>Reviews for <%= @restaurant.name %></h2>
-<ul>
+<ul class ="no-bullet">
 	<% @restaurant.reviews.each do |review| %>
-		<li class = "review_item">
+		<li>
 			<p><strong><%= review.created_at.strftime("%d %b %y")  %></strong>
 			<br><%= review.comment %> <strong>Rating: <%= review.rating %></strong></p>
 		</li>

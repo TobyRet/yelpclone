@@ -12,15 +12,20 @@
   </head>
 
   <body>
-    <div class="fixed">
-      <nav class="top-bar nav_inner" data-topbar>
-        <div id = "logo">Yelp Clone</div>
-      </nav>
-    </div>
-    <div class = "content_wrapper">
-      <%= flash[:notice] %>
-      <%= yield %>
-      <%= javascript_include_tag "application" %>
-    </div>
+    <header>
+      <div class="fixed">
+        <nav class="top-bar nav_inner" data-topbar>
+          <div id = "logo">Yelp Clone</div>
+        </nav>
+      </div>
+    </header>
+    
+    <main>
+      <div class = "content_wrapper">
+        <div class ="notice"><%= flash[:notice] %></div>
+        <%= yield %>
+        <%= javascript_include_tag "application" %>
+      </div>
+    </main>
   </body>
 </html>
