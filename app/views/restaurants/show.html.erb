@@ -1,0 +1,9 @@
+<h2>Reviews for <%= @restaurant.name %></h2>
+<ul>
+	<% @restaurant.reviews.each do |review| %>
+		<li class = "review_item">
+			<p><strong><%= review.created_at.strftime("%d %b %y")  %></strong>
+			<br><%= review.comment %> <strong>Rating: <%= review.rating %></strong></p>
+		</li>
+	<% end %>
+</ul>

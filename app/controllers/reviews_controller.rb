@@ -10,11 +10,4 @@ class ReviewsController < ApplicationController
     redirect_to '/restaurants'
   end
 
-  def index
-    @restaurant = Restaurant.find(params[:restaurant_id])
-    @reviews = @restaurant.reviews
-    #redirect_to '/restaurants/reviews'
-    #redirect_to(restaurant_reviews_path(@restaurant))
-  end
-
 end

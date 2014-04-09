@@ -24,9 +24,8 @@ describe 'the restaurant index page' do
   end
 
   context 'with existing restaurants' do
-    before do
-      Restaurant.create({:name => 'McDonalds'})
-    end
+      
+    let!(:restaurant) { Restaurant.create(:name => 'McDonalds') }
 
     describe 'editing a restaurant' do
       it 'should update the restaurant details' do
@@ -41,11 +40,24 @@ describe 'the restaurant index page' do
     describe 'deleting a restaurant' do
       it 'should permanently destroy the restaurant' do
         visit '/restaurants'
-        click_link 'Delete McDonalds'
+        click_link 'Delete'
         expect(page).not_to have_content 'McDonalds'
         expect(page).to have_content 'Restaurant deleted successfully!'
       end
     end
 
+    context 'with reviews posted' do
+      before do
+        restaurant.reviews.create(rating: 3, comment: 'Food was awful')
+      end
+
+      describe 'the individual resturant page' do
+        it 'displays the review' do
+          visit'/restaurants'
+          click_link 'McDonalds'
+          expect(page).to have_content('Food was awful')
+        end
+      end
+    end
   end
 end
