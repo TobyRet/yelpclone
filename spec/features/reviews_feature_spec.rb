@@ -2,21 +2,34 @@ require 'spec_helper'
 
 describe 'writing reviews' do 
 
-  before do 
-    Restaurant.create(name: 'McDonalds')
-  end
+  context 'with reviews posted' do
+    
+    before do
+      restaurant = Restaurant.create(name: 'McDonalds')
+      restaurant.reviews.create(rating: 3, comment: 'Food was awful')
+    end
 
-  it 'should change the average score of the restaurant' do
-    visit '/restaurants'
-    review_mcd
-    expect(page).to have_css '.average_review', text: '2' 
-  end
+    describe 'the individual restaurant page' do
+      it 'displays the review' do
+        visit'/restaurants'
+        click_link 'McDonalds'
+        expect(page).to have_content('Food was awful')
+      end
 
-  def review_mcd
-    click_link 'Review'
-    fill_in 'Comment', with: 'Awful'
-    select '2', from: 'Rating'
-    click_button 'Create Review'
-  end
+      it 'displays the rating' do
+        visit'/restaurants'
+        click_link 'McDonalds'
+        expect(page).to have_content('Food was awful')
+      end
 
+    end
+
+    describe 'the home page' do
+      it 'show latest reviews on the home page' do
+        visit '/restaurants' 
+        expect(page).to have_content('Food was awful')
+      end
+    end
+
+  end
 end

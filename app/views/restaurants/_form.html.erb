@@ -1,16 +1,29 @@
 <div class="small-8 form_align">
+
+  <% if @restaurant.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@restaurant.errors.count, "error") %> prohibited this post from being saved:</h2>
+   
+      <ul>
+      <% @restaurant.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
   <%= form_for @restaurant do |f| %>  	
       <div class="row">
       		<%= f.label :name%>
-      		<%= f.text_field :name, :class => "large-4 columns" %>
+      		<%= f.text_field :name, class: "large-4 columns", required: true %>
       	</div>
       	<div class="row">
       		<%= f.label :category %>
-      		<%= f.text_field :category, :class => "large-4 columns" %>
+      		<%= f.text_field :category, class: "large-4 columns" %>
       	</div>
       	<div class="row">
       		<%= f.label :location %>
-      		<%= f.text_field :location, :class => "large-4 columns" %>
+      		<%= f.text_field :location, class: "large-4 columns" %>
       	</div>
       	<div class="row">
       		<%= f.submit :class => "button" %>

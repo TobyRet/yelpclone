@@ -13,9 +13,13 @@ class RestaurantsController < ApplicationController
   end
 
   def create
-    Restaurant.create restaurant_params
-    flash[:notice] = 'Restaurant added!'
-    redirect_to '/restaurants'
+    @restaurant = Restaurant.new(restaurant_params)
+    if @restaurant.save
+      flash[:notice] = 'Restaurant added!'
+      redirect_to '/restaurants'
+    else 
+      render 'new'
+    end
   end
 
   def update

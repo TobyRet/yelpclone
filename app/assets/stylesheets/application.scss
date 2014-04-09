@@ -1,13 +1,16 @@
 @import "foundation_and_overrides";
 /* Add imports of custom sass/scss files here */
 
+h1 a {
+	color: white;
+	font-family: 'Londrina Outline', cursive;
+	text-decoration: none;
+	font-size: 2em;
+}
+
 .nav_inner {
 	padding-left: 10%;
 	padding-right: 10%;
-}
-
-#logo {
-	color: white;
 }
 
 .content_wrapper {
@@ -31,14 +34,6 @@
 	font-size: 1.5em;
 }
 
-.restaurant_links {
-	padding-right: 15px;
-}
-
-.restaurant_item:hover {
-	background: #EBEBEB;
-}
-
 .notice {
   text-align: center;
   background-color: #2ecc71;
@@ -46,4 +41,8 @@
   color: white;
   font-size: 20px;
   margin-top: 50px;
+}
+
+.field_with_errors input {
+	border-color: red;
 }

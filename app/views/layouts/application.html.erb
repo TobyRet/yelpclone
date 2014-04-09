@@ -4,10 +4,11 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title><%= content_for?(:title) ? yield(:title) : "Yelp Clone | Makers Academy" %></title>
+    <title><%= content_for?(:title) ? yield(:title) : "Food Binger" %></title>
 
     <%= stylesheet_link_tag    "application" %>
     <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+    <link href='http://fonts.googleapis.com/css?family=Londrina+Outline' rel='stylesheet' type='text/css'>
     <%= javascript_include_tag "vendor/modernizr" %>
     <%= csrf_meta_tags %>
   </head>
@@ -16,9 +17,18 @@
     <header>
       <div class="fixed">
         <nav class="top-bar nav_inner" data-topbar>
-          <div id = "logo">Yelp Clone</div>
+          <ul class="title-area">
+            <li class ="name">
+              <h1><a href="/restaurants">Food Binger</a></h1>
+            </li>
+          </ul>
+          <section class="top-bar-section">
+          <!-- Right Nav Section -->
+          <ul class="right">
+            <li class="hover"><a href="/restaurants">Restaurants</a></li>
+            <li class="hover"><a href="#">Reviews</a></li>
+          </ul>
         </nav>
-      </div>
     </header>
     
     <main>
