@@ -1,7 +1,7 @@
 class RestaurantsController < ApplicationController
   def index
     @restaurants = Restaurant.all
-    @reviews = Review.all
+    @reviews = Review.all.limit(5)
   end
 
   def new
