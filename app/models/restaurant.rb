@@ -3,7 +3,7 @@ class Restaurant < ActiveRecord::Base
 
   def average_score
     return 'No reviews' if reviews.none?
-    reviews.average(:rating)
+    reviews.average(:rating).round
   end
 
 end
