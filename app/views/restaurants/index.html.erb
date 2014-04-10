@@ -20,13 +20,7 @@
 						</ul>
 						<ul>
 							<li class="average_review">
-								<% if restaurant.average_score != 'No reviews' %>
-									<% restaurant.average_score.times do %>
-										<span><i class="fa fa-star"></i></span>
-									<% end %>
-								<% else %>
-									<%= restaurant.average_score %>
-								<% end %>
+								<%= star_rating(restaurant.average_score) %>
 							</li>
 						</ul>
 					</div>

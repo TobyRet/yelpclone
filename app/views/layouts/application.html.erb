@@ -25,16 +25,16 @@
           <section class="top-bar-section">
           <!-- Right Nav Section -->
           <ul class="right">
-            <li class="hover"><a href="/restaurants">Restaurants</a></li>
-            <li class="hover"><a href="#">Reviews</a></li>
+            <li class="hover"><%= link_to 'Sign in', new_user_session_path %></li>
+            <li class="hover"><%= link_to 'Sign up', new_user_registration_path %></li>
           </ul>
         </nav>
     </header>
     
     <main>
       <div class = "content_wrapper">
-        <div class ="notice"><%= :notice %></div>
-        <div class ="alert"><%= :alert %></div>
+        <div class ="notice"><%= notice %></div>
+        <div class ="alert"><%= alert %></div>
         <%= yield %>
         <%= javascript_include_tag "application" %>
       </div>

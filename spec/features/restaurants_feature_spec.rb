@@ -8,17 +8,36 @@ describe 'the restaurant index page' do
       expect(page).to have_content('No restaurants have been added yet')
     end
 
+
+
     describe 'adding a restaurant' do
 
-      it 'should be listed on the index' do
-        visit '/restaurants'
-        click_link 'Add a restaurant'
-        fill_in 'Name', with: 'KFC'
-        fill_in 'Category', with: 'Fastfood'
-        fill_in 'Location', with: 'Everywhere'
-        click_button 'Create Restaurant'
-        expect(current_path).to eq '/restaurants'
-        expect(page).to have_content 'KFC'
+      context 'logged out' do
+        it 'takes me to the signed in page' do
+          visit '/restaurants'
+          click_link 'Add a restaurant' 
+          expect(current_path).to eq '/users/sign_in'
+          expect(page).to have_content('Sign in')
+        end
+
+      end
+
+      context 'logged in' do 
+
+        before do
+          login_as_test_user
+        end
+
+        it 'should be listed on the index' do
+          visit '/restaurants'
+          click_link 'Add a restaurant'
+          fill_in 'Name', with: 'KFC'
+          fill_in 'Category', with: 'Fastfood'
+          fill_in 'Location', with: 'Everywhere'
+          click_button 'Create Restaurant'
+          expect(current_path).to eq '/restaurants'
+          expect(page).to have_content 'KFC'
+        end
       end
     end
   end
