@@ -33,7 +33,8 @@
     
     <main>
       <div class = "content_wrapper">
-        <div class ="notice"><%= flash[:notice] %></div>
+        <div class ="notice"><%= :notice %></div>
+        <div class ="alert"><%= :alert %></div>
         <%= yield %>
         <%= javascript_include_tag "application" %>
       </div>
