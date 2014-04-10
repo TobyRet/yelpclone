@@ -7,6 +7,11 @@
 					<div class="restaurant_title">
 						<h3><%= link_to restaurant.name, restaurant_path(restaurant) %></h3>
 					</div>
+					<% if restaurant.category %>
+						<div class ="restaurant_category">
+							Category: <%= link_to restaurant.category, category_path(restaurant.category) %>
+						</div>
+					<% end %>
 					<div class="button-bar">
 						<ul class="button-group round">
 							<li class="tiny button secondary"><%= link_to 'Edit', edit_restaurant_path(restaurant) %></li>
