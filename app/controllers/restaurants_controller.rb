@@ -3,12 +3,12 @@ class RestaurantsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create]
   
   def index
-    @restaurants = Restaurant.all
+    @restaurants = Restaurant.all.sort_by { |restaurant| restaurant.average_score }.reverse
     @reviews = Review.all.limit(5)
   end
 
   def new
-    @restaurant = Restaurant.new
+    @restaurant = Restaurant.new 
   end
 
   def edit
