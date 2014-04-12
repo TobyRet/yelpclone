@@ -6,6 +6,8 @@ Yelpclone::Application.routes.draw do
     resources :reviews
   end
   resources :categories
+  resources :locations
+  #get '/location/:location' => 'locations#show'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

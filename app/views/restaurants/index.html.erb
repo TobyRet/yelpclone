@@ -12,6 +12,11 @@
 							Category: <%= link_to restaurant.category, category_path(restaurant.category) %>
 						</div>
 					<% end %>
+					<!-- <% if restaurant.location %> -->
+						<div class ="restaurant_location">
+							Location: <%= link_to restaurant.location, location_path(restaurant.location) %>
+						</div>
+					<!-- <% end %> -->
 					<div class="button-bar">
 						<ul class="button-group round">
 							<li class="tiny button secondary"><%= link_to 'Edit', edit_restaurant_path(restaurant) %></li>
@@ -37,8 +42,9 @@
 		<% @reviews.each do |review| %>
 			<ul class ="no-bullet">
 				<li>
-					<strong><%= review.created_at.strftime("%d %b %y")  %></strong><br>
-					<em><%= truncate(review.comment, :length => 100) %></em><%= link_to "Read more", nil %>
+					<%= review.created_at.strftime("%d %b %y")  %> - <strong><%= review.restaurant.name %></strong><br>
+					
+					<em><%= truncate(review.comment, :length => 100) %></em>...<%= link_to "Read more", restaurant_path(review.restaurant) %>
 				</li>
 			</ul>
 		<% end %>

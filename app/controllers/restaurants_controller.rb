@@ -3,7 +3,7 @@ class RestaurantsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create]
   
   def index
-    @restaurants = Restaurant.all.sort_by { |restaurant| restaurant.average_score }.reverse
+    @restaurants = Restaurant.all.limit(3).sort_by { |restaurant| restaurant.average_score }.reverse
     @reviews = Review.all.limit(5)
   end
 
@@ -42,6 +42,8 @@ class RestaurantsController < ApplicationController
   def show
     @restaurant = Restaurant.find params[:id]
   end
+
+
 
   private
 
