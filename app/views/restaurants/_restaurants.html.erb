@@ -1,5 +1,7 @@
 <% @restaurants.each do |restaurant| %>
 	<div class = "restaurant_item">
+  		<img class = 'th left' src="<%= asset_path( 'kfc.jpeg' ) %>">
+
 		<div class="restaurant_title">
 			<h3><%= link_to restaurant.name, restaurant_path(restaurant) %></h3>
 		</div>
