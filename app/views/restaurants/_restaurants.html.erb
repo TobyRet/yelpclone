@@ -1,0 +1,35 @@
+<% @restaurants.each do |restaurant| %>
+	<div class = "restaurant_item">
+		<div class="restaurant_title">
+			<h3><%= link_to restaurant.name, restaurant_path(restaurant) %></h3>
+		</div>
+		<% if restaurant.category %>
+			<div class ="restaurant_category">
+				Category: <%= link_to restaurant.category, category_path(restaurant.category) %>
+			</div>
+		<% end %>
+		<% if restaurant.location %>
+			<div class ="restaurant_location">
+				Location: <%= link_to restaurant.location, location_path(restaurant.location) %>
+			</div>
+		<% end %>
+		<div class="button-bar">
+			<ul class="button-group round">
+				<li class="tiny button secondary"><%= link_to 'Edit', edit_restaurant_path(restaurant) %></li>
+				<li class="tiny button secondary"><%= link_to "Delete", restaurant_path(restaurant), method: :delete, data: { confirm: 'Are yousure?' } %></li>
+				<li class="tiny button secondary"><%= link_to "Review", new_restaurant_review_path(restaurant)	 %></li>
+			</ul>
+			<ul>
+				<li class="average_review">
+					<% if restaurant.average_score != 'No reviews' %>
+						<% restaurant.average_score.times do %>
+							<span><i class="fa fa-star"></i></span>
+						<% end %>
+					<% else %>
+						<%= restaurant.average_score %>
+					<% end %>
+				</li>
+			</ul>
+		</div>
+	</div>
+<% end %>
