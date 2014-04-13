@@ -3,35 +3,16 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
     <title><%= content_for?(:title) ? yield(:title) : "Food Binge" %></title>
-
     <%= stylesheet_link_tag "application" %>
     <%= stylesheet_link_tag "//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" %>
     <%= stylesheet_link_tag "http://fonts.googleapis.com/css?family=Londrina+Outline" %>
     <%= javascript_include_tag "vendor/modernizr" %>
     <%= csrf_meta_tags %>
-  
   </head>
 
   <body>
-    <header>
-      <div class="fixed">
-        <nav class="top-bar nav_inner" data-topbar>
-          <ul class="title-area">
-            <li class ="name">
-              <h1><a href="/restaurants">Food Binger</a></h1>
-            </li>
-          </ul>
-          <section class="top-bar-section">
-          <!-- Right Nav Section -->
-          <ul class="right">
-            <li class="hover"><%= link_to 'Sign in', new_user_session_path %></li>
-            <li class="hover"><%= link_to 'Sign up', new_user_registration_path %></li>
-          </ul>
-        </nav>
-    </header>
-    
+    <%= render 'layouts/navigation' %>
     <main>
       <div class = "content_wrapper">
         <div class ="notice"><%= notice %></div>
